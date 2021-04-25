@@ -2,17 +2,16 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Dani\.Rider2018.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Dani\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_CAR.-320147277.00" t="ExcludeRecursive" />
-    <e p="G:\DANIELA\school\CAR\CAR" t="IncludeRecursive">
+    <e p="C:\Users\Dani\.Rider2018.3\system\resharper-host\local\Transient\ReSharperHost\v183\SolutionCaches\_CAR.-1202987775.00" t="ExcludeRecursive" />
+    <e p="G:\DANIELA\school\Projects\CAR\CAR" t="IncludeRecursive">
       <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
       <e p="Assets" t="Include">
         <e p="Scripts" t="Include">
           <e p="CarAssembler.cs" t="Include" />
           <e p="CarAssemblerSlider.cs" t="Include" />
-          <e p="CarMovement.cs" t="Include" />
-          <e p="FaceFilterManager.cs" t="Include" />
           <e p="ObjectManipulator.cs" t="Include" />
           <e p="PlacementManager.cs" t="Include" />
+          <e p="RotationMovement.cs" t="Include" />
           <e p="SceneChangingManager.cs" t="Include" />
           <e p="TrackedImageManager.cs" t="Include" />
           <e p="Wheel.cs" t="Include" />

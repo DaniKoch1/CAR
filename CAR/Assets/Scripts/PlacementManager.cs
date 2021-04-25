@@ -15,6 +15,7 @@ public class PlacementManager : MonoBehaviour
     private GameObject stain;
 
     private List<ARRaycastHit> hits;
+    
     private Vector2 touchPosition;
 
     private bool isCarPlaced;
@@ -27,14 +28,14 @@ public class PlacementManager : MonoBehaviour
 
     private void Update() {
         
-        if (Input.touchCount > 0) {
+        if(Input.touchCount > 0) {
             
-            if (!isCarPlaced) {
+            if(!isCarPlaced) {
                 
                 touchPosition = Input.GetTouch(0).position;
                 TryPlaceCar();
                 
-                if (isCarPlaced) {
+                if(isCarPlaced) {
                     DisableGroundPlaneVisibility();
                 }
             }
@@ -46,9 +47,9 @@ public class PlacementManager : MonoBehaviour
 
     private void TryPlaceCar() {
         
-        if (Input.GetTouch(0).phase == TouchPhase.Ended) {
+        if(Input.GetTouch(0).phase == TouchPhase.Ended) {
             
-            if (DidTouchHitTarget(TrackableType.PlaneWithinPolygon)) {
+            if(DidTouchHitTarget(TrackableType.PlaneWithinPolygon)) {
                 
                 Pose hitPose = hits[0].pose;
                 PlaceObject(hitPose, carModel, carPlacementRoot);
@@ -59,13 +60,13 @@ public class PlacementManager : MonoBehaviour
 
     private void TryPlaceStain() {
         
-        foreach (Touch touch in Input.touches) {
+        foreach(Touch touch in Input.touches) {
             
-            if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved) {
+            if(touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Moved) {
                 
                 touchPosition = touch.position;
                 
-                if (DidTouchHitTarget(TrackableType.Planes)) {
+                if(DidTouchHitTarget(TrackableType.Planes)) {
                     
                     foreach (ARRaycastHit hit in hits) {
                         
@@ -97,7 +98,17 @@ public class PlacementManager : MonoBehaviour
     }
 
     private void DisableGroundPlaneVisibility() {
+        
         GetComponent<ARPlaneManager>().enabled = false;
+        
+        foreach(GameObject plane in GameObject.FindGameObjectsWithTag("PlaneVisualizer")) {
+            
+            Renderer renderer = plane.GetComponent<Renderer>();
+            ARPlaneMeshVisualizer visualizer = plane.GetComponent<ARPlaneMeshVisualizer>();
+            
+            renderer.enabled = false;
+            visualizer.enabled = false;
+        }
     }
     
 }

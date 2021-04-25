@@ -134,7 +134,7 @@ GameObject:
   - component: {fileID: 234524736}
   m_Layer: 0
   m_Name: Handle
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -478,10 +478,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carModel: {fileID: 2472527482050684922, guid: a2ade1fd2fa46ae498074f75c8e94347,
     type: 3}
-  carMaterials:
-  - {fileID: 2100000, guid: d23c5544e2b6ddd4cbac4211b06d7ee6, type: 2}
-  - {fileID: 2100000, guid: 5f0b6fc47a010a340a7bfeba8f7b8c49, type: 2}
-  - {fileID: 2100000, guid: 2f41a459e423d764399d79d7c3967ce6, type: 2}
 --- !u!114 &337390349
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -744,6 +740,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: ExitButton
       objectReference: {fileID: 0}
+    - target: {fileID: 5154493246309195167, guid: fa102b6c8dc1c48499b324e732f4b03e,
+        type: 3}
+      propertyPath: m_TagString
+      value: UI
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fa102b6c8dc1c48499b324e732f4b03e, type: 3}
 --- !u!224 &993844068 stripped
@@ -866,7 +867,7 @@ GameObject:
   - component: {fileID: 1836355451}
   m_Layer: 0
   m_Name: Slider
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1038,7 +1039,7 @@ GameObject:
   - component: {fileID: 2044456458}
   m_Layer: 0
   m_Name: Handle Slide Area
-  m_TagString: Untagged
+  m_TagString: UI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

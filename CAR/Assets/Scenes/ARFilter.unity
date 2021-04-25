@@ -569,6 +569,7 @@ GameObject:
   - component: {fileID: 1911080978}
   - component: {fileID: 1911080980}
   - component: {fileID: 1911080981}
+  - component: {fileID: 1911080982}
   m_Layer: 0
   m_Name: AR Session Origin
   m_TagString: Untagged
@@ -632,6 +633,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   carModel: {fileID: 145614897174658205, guid: 5cedff7072ea78049b7f3a8f197c970d, type: 3}
+--- !u!81 &1911080982
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1911080977}
+  m_Enabled: 1
 --- !u!224 &2137885330 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5154493246309195164, guid: fa102b6c8dc1c48499b324e732f4b03e,

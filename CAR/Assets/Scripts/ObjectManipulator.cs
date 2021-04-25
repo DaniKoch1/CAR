@@ -1,78 +1,89 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class ObjectManipulator : MonoBehaviour
 {
-    private GameObject selectedObject;
-//    [SerializeField]
-//    private GameObject manipulatorObject;
     [SerializeField]
     private Camera arCamera;
+    
+    private GameObject selectedObject;
+    
     private float rotationSpeed = 0.2f;
-    private Vector2[] oldPositions;
-    private bool wasScaledLastFrame;
     private float scaleSpeed = 0.001f;
     
-    void Awake()
-    {
-        arCamera = FindObjectOfType<Camera>();
-        //manipulatorObject.SetActive(false);
-    }
+    private Vector2[] oldPositions;
+    
+    private bool wasScaledLastFrame;
 
-    void Update()
-    {
-        if(Input.touches.Length == 0)
+    void Update() {
+        if (Input.touches.Length == 0)
             return;
-        
-        if(Input.touches.Length == 1) {
-            
+
+        if (Input.touches.Length == 1) {
+
             Touch touch = Input.GetTouch(0);
+            
             Ray ray = arCamera.ScreenPointToRay(touch.position);
             RaycastHit hit;
-            
-            if(Physics.Raycast(ray, out hit)){
-                if(touch.phase == TouchPhase.Began){
-                    Debug.Log("***Touch began with tag " + hit.collider.gameObject.tag);
-                    if(hit.collider.gameObject.CompareTag("CarForImage")){
-                        selectedObject = hit.collider.gameObject;
-                        Debug.Log("***Selected object assigned***");
-//                        manipulatorObject.transform.position = selectedObject.transform.position;
-//                        manipulatorObject.SetActive(true);
-                    }
+
+            if (Physics.Raycast(ray, out hit)) {
+
+                if (touch.phase == TouchPhase.Began) {
+                    selectedObject = hit.collider.gameObject;
                 }
-                if(touch.phase == TouchPhase.Moved && selectedObject != null){
-                    Debug.Log("***Touch moved***");
-                    var rotation = Quaternion.Euler(touch.deltaPosition.y * rotationSpeed, -touch.deltaPosition.x * rotationSpeed, 0);
-                    selectedObject.transform.rotation = rotation * selectedObject.transform.rotation;
+
+                if (touch.phase == TouchPhase.Moved && selectedObject != null) {
+                    RotateObject(touch);
                 }
             }
         }
-        if(Input.touches.Length == 2){
-           // Debug.Log("***Two touches");
+
+        if (Input.touches.Length == 2) {
+
             Touch[] touches = Input.touches;
             
-            if(touches[0].phase == TouchPhase.Moved && touches[1].phase == TouchPhase.Moved && selectedObject != null){
-                
-                Vector2[] newPositions = new Vector2[2]{touches[0].position, touches[1].position};
-                
-                if(!wasScaledLastFrame){
-                    oldPositions = newPositions;
-                    wasScaledLastFrame = true;
-                }
-                else{
-                    float newDistance = Vector2.Distance(newPositions[0], newPositions[1]);
-                    float oldDistance = Vector2.Distance(oldPositions[0], oldPositions[1]);
-                    float offset = newDistance - oldDistance;
-                    ScaleObject(selectedObject.transform, offset);
-                    oldPositions = newPositions;
-                }
+            if (touches[0].phase == TouchPhase.Moved && touches[1].phase == TouchPhase.Moved && selectedObject != null) {
+                TryScaleObject(touches);
             }
-            else
+            
+            else {
                 wasScaledLastFrame = false;
+            }
         }
     }
-    private void ScaleObject(Transform _transform, float _offset){
-        _transform.localScale += _transform.localScale * _offset * scaleSpeed;
+
+    private void RotateObject(Touch touch) {
+        
+        float xRotation = touch.deltaPosition.y * rotationSpeed;
+        float yRotation = -touch.deltaPosition.x * rotationSpeed;
+        
+        Quaternion rotation = Quaternion.Euler(xRotation, yRotation, 0);
+        
+        selectedObject.transform.rotation *= rotation;
     }
+
+    private void TryScaleObject(Touch[] touches) {
+        
+        Vector2[] newPositions = new Vector2[] {touches[0].position, touches[1].position};
+
+        if (!wasScaledLastFrame) {
+            wasScaledLastFrame = true;
+        }
+        
+        else {
+            float scaleFactor = GetScaleFactor(newPositions);
+            selectedObject.transform.localScale += selectedObject.transform.localScale * scaleFactor * scaleSpeed;
+        }
+        
+        oldPositions = newPositions;
+    }
+
+    private float GetScaleFactor(Vector2[] newPositions) {
+        
+        float newDistance = Vector2.Distance(newPositions[0], newPositions[1]);
+        float oldDistance = Vector2.Distance(oldPositions[0], oldPositions[1]);
+        float scaleFactor = newDistance - oldDistance;
+
+        return scaleFactor;
+    }
+    
 }

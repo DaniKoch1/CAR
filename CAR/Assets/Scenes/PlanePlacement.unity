@@ -430,7 +430,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 32a506599b116904f9588f1865693eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  carModel: {fileID: 4242033884893295659, guid: 19090dc16db90e946b8a9701f274ac7d,
+  carModel: {fileID: 1871259921185467834, guid: c3223a622802f3f4996af9c93333a07f,
     type: 3}
   carPlacementRoot: {fileID: 258011545}
   stain: {fileID: 5654109834151281885, guid: 6dd577395e380a74e8127a33bc488789, type: 3}
