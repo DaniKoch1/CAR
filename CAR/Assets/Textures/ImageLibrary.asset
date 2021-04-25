@@ -1,0 +1,47 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 848409ee8ba454f42a5ddff137688a27, type: 3}
+  m_Name: ImageLibrary
+  m_EditorClassIdentifier: 
+  m_GuidLow: 5416253391539524604
+  m_GuidHigh: 7286710382559899808
+  m_Images:
+  - m_SerializedGuid:
+      m_GuidLow: 5616169185350025325
+      m_GuidHigh: 13638006994382339977
+    m_SerializedTextureGuid:
+      m_GuidLow: 15475736463357598597
+      m_GuidHigh: 17648572261947085081
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: carSilver
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4689054067236125471
+      m_GuidHigh: 15779451305220344758
+    m_SerializedTextureGuid:
+      m_GuidLow: 13989312665887393184
+      m_GuidHigh: 12580627017493022090
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: carBlue
+    m_Texture: {fileID: 0}
+  - m_SerializedGuid:
+      m_GuidLow: 4766491571704143980
+      m_GuidHigh: 13671586237259566984
+    m_SerializedTextureGuid:
+      m_GuidLow: 5680224456257098684
+      m_GuidHigh: 1720015343800656425
+    m_Size: {x: 0, y: 0}
+    m_SpecifySize: 0
+    m_Name: carRed
+    m_Texture: {fileID: 0}
