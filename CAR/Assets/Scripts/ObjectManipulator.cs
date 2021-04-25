@@ -15,6 +15,7 @@ public class ObjectManipulator : MonoBehaviour
     private bool wasScaledLastFrame;
 
     void Update() {
+        
         if (Input.touches.Length == 0)
             return;
 
@@ -65,6 +66,7 @@ public class ObjectManipulator : MonoBehaviour
         
         Vector2[] newPositions = new Vector2[] {touches[0].position, touches[1].position};
 
+        //do not scale yet, as there is not old position
         if (!wasScaledLastFrame) {
             wasScaledLastFrame = true;
         }

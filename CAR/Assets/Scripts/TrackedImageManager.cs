@@ -33,11 +33,12 @@ public class TrackedImageManager : MonoBehaviour
 
         foreach (ARTrackedImage image in eventArgs.updated) {
             
-            if (placedCars.Count == 0) {
+            //If coming back to the same scene, the game object was destroyed, but the image might not have been removed
+            if (!placedCars.ContainsKey(image.referenceImage.name)) {
                 InstantiateCar(image);
             }
             else {
-                placedCars[image.referenceImage.name].SetActive(image.trackingState == TrackingState.Tracking);
+                placedCars[image.referenceImage.name].SetActive(image.trackingState.Equals(TrackingState.Tracking));
             }
         }
 
@@ -56,6 +57,7 @@ public class TrackedImageManager : MonoBehaviour
         placedCars.Add(image.referenceImage.name, car);
     }
 
+    //The image name format is always carColor
     private string GetCarColorFromImageName(ARTrackedImage image) {
         
         string prefix = "car";

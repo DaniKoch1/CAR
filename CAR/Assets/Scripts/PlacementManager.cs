@@ -30,6 +30,7 @@ public class PlacementManager : MonoBehaviour
         
         if(Input.touchCount > 0) {
             
+            //Place the car only once
             if(!isCarPlaced) {
                 
                 touchPosition = Input.GetTouch(0).position;

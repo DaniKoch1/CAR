@@ -23,7 +23,7 @@ public class CarAssemblerSlider : MonoBehaviour
     }
 
     public void OnValueChanged() {
-        sliderValueChanged((slider.value - previousSliderValue));
+        sliderValueChanged(slider.value - previousSliderValue);
         previousSliderValue = slider.value;
     }
 }
